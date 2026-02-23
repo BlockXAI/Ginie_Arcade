@@ -40,6 +40,17 @@ async function main() {
       maxScorePerSecond: 10,
       active: true,
     },
+    {
+      gameId: 'sudoku',
+      name: 'Sudoku: Roast Mode',
+      slug: 'sudoku',
+      description: 'Comedy-driven Sudoku with hilarious roast characters and 60+ voice lines.',
+      category: 'Puzzle',
+      maxScore: 3000,
+      minDuration: 30,
+      maxScorePerSecond: 50,
+      active: true,
+    },
   ];
 
   for (const game of games) {
