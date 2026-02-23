@@ -15,6 +15,8 @@ export const BADGE_TOKEN_URIS: Record<string, string> = {
   'neon-10000': 'ipfs://bafkreibdoulivh3ylixxms3yf3l2y265ujt2kqqvppzu5qzcuwrkupco7y',
   'tilenova-500': 'ipfs://bafkreigwmlhxsmvuxehhjcmwzdznnhry2xtn5kxkwj2e3i3dluvbfdklfy',
   'tilenova-5000': 'ipfs://bafkreidhsggibnrx7gn24npx77fboo2nshxt6bbb5uw7rqva2oby7beiuy',
+  'sudoku-500': 'ipfs://bafkreif2sudoku500placeholder0000000000000000000000000000000',
+  'sudoku-1500': 'ipfs://bafkreif2sudoku1500placeholder000000000000000000000000000000',
   'all-rounder': 'ipfs://bafkreie5qsh64q3rkcn26smu6e3e6xemht3xt5avn4fq23cvqejwcu4jyy',
 };
 
