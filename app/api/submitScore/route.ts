@@ -217,6 +217,7 @@ export async function POST(request: NextRequest) {
       valid: true,
       score,
       duration,
+      xpEarned: baseXp + (reward?.xp || 0),
       reward: reward ? {
         type: reward.type,
         rewardId: reward.rewardId,

@@ -283,9 +283,7 @@ export default function GamePlayer() {
     );
   }
 
-  const xpEarned = submitResult?.alreadyEnded
-    ? 0
-    : submitResult?.reward?.xp || (submitResult?.success ? 10 : 0);
+  const xpEarned = submitResult?.xpEarned || 0;
 
   return (
     <div className="fixed inset-0 flex flex-col bg-black" data-game-page="true">
