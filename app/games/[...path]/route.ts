@@ -4,7 +4,7 @@ import path from 'path';
 
 export const runtime = 'nodejs';
 
-const BASE_DIR = path.join(process.cwd(), 'packages', 'backend', 'public', 'games');
+const BASE_DIR = path.join(process.cwd(), 'public', 'games');
 
 const FALLBACK_ORIGIN = process.env.GINIX_GAME_ASSET_FALLBACK_ORIGIN || 'https://arcade-web-chi.vercel.app';
 const FALLBACK_PREFIXES = ['flappy', 'sudoku'];
