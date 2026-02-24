@@ -200,7 +200,7 @@ export async function POST(request: NextRequest) {
     // Check and mint badge NFTs (non-blocking)
     const newBadges = await checkAndMintBadges(wallet, gameId);
 
-    // Mint score NFT (server-side, backend signer is authorized minter)
+    // Mint score NFT ONLY on new high score (prevent wallet spam)
     const GAME_NAMES: Record<string, string> = {
       'neon-sky-runner': 'Neon Sky Runner',
       'tilenova': 'TileNova: Circuit Surge',
@@ -208,7 +208,8 @@ export async function POST(request: NextRequest) {
       'sudoku': 'Sudoku: Roast Mode',
     };
     let scoreNFT: { txHash: string; tokenId: number } | null = null;
-    if (isMintingAvailable() && score > 0) {
+    const isNewHighScore = !existingEntry || (existingEntry && score > existingEntry.score);
+    if (isMintingAvailable() && score > 0 && isNewHighScore) {
       scoreNFT = await mintScoreNFT(wallet, gameId, GAME_NAMES[gameId] || gameId, score, duration);
     }
 
