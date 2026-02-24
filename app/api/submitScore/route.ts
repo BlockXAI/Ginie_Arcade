@@ -107,8 +107,8 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Update player stats — award base XP scaled by score
-    const baseXp = 10 + score;
+    // Update player stats — award XP scaled by score (score × 10)
+    const baseXp = score * 10;
     await prisma.player.update({
       where: { walletAddress: wallet },
       data: {
