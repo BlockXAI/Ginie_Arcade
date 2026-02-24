@@ -170,7 +170,7 @@
     },
     error: function(...args) {
       _realError.apply(console, args);
-      GinixBridge.sendMessage('gameError', { error: args.join(' '));
+      GinixBridge.sendMessage('gameError', { error: args.join(' ') });
     },
     warn: function(...args) {
       (console.warn || _realLog).apply(console, args);
