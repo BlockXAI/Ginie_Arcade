@@ -18,6 +18,7 @@
     currentScore: 0,
     isGameActive: false,
     _gameEndSent: false,
+    levelsCompleted: 0, // Track TileNova levels
 
     init() {
       const params = new URLSearchParams(window.location.search);
@@ -69,20 +70,17 @@
       // Ignore our own bridge logs
       if (message.indexOf('[Ginix Bridge]') !== -1) return;
 
-      // ----- Score detection (broad patterns) -----
-      // Pattern 1: "Best X" (Neon Sky Runner shows "Best 3")
-      let m = message.match(/\bbest[\s:=]+(\d+)/i);
-      if (m) {
-        const s = parseInt(m[1], 10);
-        if (s > 0 && s !== this.currentScore) {
-          this.onScoreUpdate(s);
-          _realLog('[Ginix Bridge] Detected Best score:', s);
-        }
+      // ----- TileNova: Level Complete (add 1 level, don't end game) -----
+      if (/All Power Nodes activated.*Level Complete/i.test(message)) {
+        this.levelsCompleted++;
+        this.onScoreUpdate(this.levelsCompleted);
+        _realLog('[Ginix Bridge] TileNova level completed! Total levels:', this.levelsCompleted);
         return;
       }
-      
-      // Pattern 2: "score: 123" / "Score 123" / "score=123"
-      m = message.match(/\bscore[\s:=]+(\d+)/i);
+
+      // ----- Score detection (broad patterns) -----
+      // Pattern 1: "score: 123" / "Score 123" / "score=123"
+      let m = message.match(/\bscore[\s:=]+(\d+)/i);
       if (m) {
         const s = parseInt(m[1], 10);
         if (s > 0 && s !== this.currentScore) {
@@ -92,7 +90,7 @@
         return;
       }
       
-      // Pattern 3: "points: 123" / "Points 123"
+      // Pattern 2: "points: 123" / "Points 123"
       m = message.match(/\bpoints[\s:=]+(\d+)/i);
       if (m) {
         const s = parseInt(m[1], 10);
@@ -103,18 +101,7 @@
         return;
       }
       
-      // Pattern 4: "Level X" or "Level Complete" (TileNova)
-      m = message.match(/\blevel[\s:=]+(\d+)/i);
-      if (m) {
-        const s = parseInt(m[1], 10);
-        if (s > 0 && s !== this.currentScore) {
-          this.onScoreUpdate(s);
-          _realLog('[Ginix Bridge] Detected level:', s);
-        }
-        return;
-      }
-      
-      // Pattern 5: Godot-style — line is just a number (common: print(score))
+      // Pattern 3: Godot-style — line is just a number (common: print(score))
       if (/^\s*\d+\s*$/.test(message)) {
         const s = parseInt(message.trim(), 10);
         if (s > 0 && s !== this.currentScore) {
@@ -124,8 +111,8 @@
         return;
       }
 
-      // ----- Game Over detection (broad patterns) -----
-      if (/game\s*[-_]?\s*over|died|finished|gameover|you\s+lose|you\s+lost|defeat|game\s*end|level\s*complete/i.test(message)) {
+      // ----- Game Over detection (NOT level complete) -----
+      if (/game\s*[-_]?\s*over|died|finished|gameover|you\s+lose|you\s+lost|defeat|game\s*end/i.test(message)) {
         _realLog('[Ginix Bridge] Game end detected from message:', message);
         this.onGameEnd();
       }

@@ -107,8 +107,9 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    // Update player stats — award XP scaled by score (score × 10, minimum 10)
-    const baseXp = Math.max(10, score * 10);
+    // Update player stats — award base XP scaled by score
+    // TileNova: 100 XP per level, others: score * 10
+    const baseXp = gameId === 'tilenova' ? Math.max(10, score * 100) : Math.max(10, score * 10);
     await prisma.player.update({
       where: { walletAddress: wallet },
       data: {
