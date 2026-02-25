@@ -329,16 +329,7 @@ export default function GamePlayer() {
                         const duration = getDurationNow();
                         setElapsedTime(duration);
                         setGameEnded(true);
-                        // For Godot games that don't auto-communicate, prompt for score
-                        const isGodotGame = gameId === 'neon-sky-runner' || gameId === 'tilenova';
-                        if (isGodotGame && currentScore === 0) {
-                          const manualScore = prompt('Enter your final score from the game:');
-                          const score = manualScore ? parseInt(manualScore, 10) : 0;
-                          if (score > 0) setCurrentScore(score);
-                          autoSubmitScore(score || 0, duration);
-                        } else {
-                          autoSubmitScore(currentScore, duration);
-                        }
+                        autoSubmitScore(currentScore, duration);
                       }}
                       className="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-500/20 border border-red-500/40 hover:bg-red-500/30 transition-colors"
                     >
