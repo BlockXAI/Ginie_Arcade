@@ -226,51 +226,12 @@ const engine = new Engine(GODOT_CONFIG);
 	} else {
 		setStatusMode('progress');
 		
-        // Connect Godot console to GinixBridge for score tracking
-        window.virtualConsole = {
-            log: function(...args) {
-                console.log(...args);
-            },
-            error: function(...args) {
-                console.error(...args);
-            }
-        };
-        
-        // Poll Godot game state for score extraction
-        let lastScore = 0;
-        setInterval(function() {
-            try {
-                // Try to extract score from Godot canvas or game state
-                const canvas = document.getElementById('canvas');
-                if (canvas && window.GinixBridge) {
-                    // Godot games often store score in global variables or DOM
-                    // Try multiple detection methods
-                    const scoreElements = document.querySelectorAll('div, span, p');
-                    for (const el of scoreElements) {
-                        const text = el.textContent || '';
-                        // Look for "Best X" or "Score X" or "Level X" patterns
-                        const match = text.match(/(?:Best|Score|Points?|Level)\s*[:\s]*(\d+)/i);
-                        if (match) {
-                            const score = parseInt(match[1], 10);
-                            if (score > 0 && score !== lastScore) {
-                                lastScore = score;
-                                console.log('Score detected from UI: ' + score);
-                                window.GinixBridge.updateScore(score);
-                            }
-                        }
-                    }
-                }
-            } catch (e) {
-                // Silently ignore errors
-            }
-        }, 1000);
-        
         engine.startGame({
             'onPrint': function (...args) {
-                (window.virtualConsole ?? console).log(...args);
+                console.log(...args);
             },
             'onPrintError': function (...args) {
-                (window.virtualConsole ?? console).error(...args);
+                console.error(...args);
             },
   
 			'onProgress': function (current, total) {
