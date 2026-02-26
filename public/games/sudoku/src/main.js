@@ -192,7 +192,10 @@ const config = {
   height: 800,
   scale: {
     mode: Phaser.Scale.FIT,
-    autoCenter: Phaser.Scale.NO_CENTER
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  },
+  input: {
+    activePointers: 3
   },
   backgroundColor: '#2c3e50',
   scene: [MenuScene, GameScene, VictoryScene]
