@@ -29,7 +29,7 @@ export function getBadgeTokenURI(badgeId: string, badgeName: string, badgeDescri
     return BADGE_TOKEN_URIS[badgeId];
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://arcade-web-teal.vercel.app';
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://giniearcade2.vercel.app';
   const metadata = {
     name: badgeName,
     description: badgeDescription,

@@ -376,16 +376,19 @@ export default function Dashboard() {
                       key={badge.id}
                       className="group relative overflow-hidden rounded-xl border border-white/5 bg-white/[0.02] transition-all duration-300 hover:border-white/10 hover:bg-white/[0.03]"
                     >
-                      {/* Locked Icon Area */}
-                      <div className="relative aspect-square w-full flex items-center justify-center bg-gradient-to-br from-white/[0.02] to-transparent">
-                        <div className="relative">
-                          <Shield className="h-12 w-12 text-white/10" />
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-2xl opacity-30 grayscale">{badge.icon}</span>
-                          </div>
-                        </div>
+                      {/* Locked Image Area */}
+                      <div className="relative aspect-square w-full overflow-hidden bg-gradient-to-br from-white/[0.02] to-transparent">
+                        <img
+                          src={`/badges/${badge.id}.png`}
+                          alt={badge.name}
+                          className="h-full w-full object-cover grayscale opacity-25"
+                          loading="lazy"
+                          decoding="async"
+                        />
                         {/* Lock overlay */}
-                        <div className="absolute inset-0 bg-black/40" />
+                        <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                          <Shield className="h-8 w-8 text-white/15" />
+                        </div>
 
                         {/* Tier indicator */}
                         <div className="absolute top-2 left-2">
