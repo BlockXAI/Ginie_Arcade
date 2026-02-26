@@ -48,7 +48,7 @@
       initWithFallback: function() {},
     };
     
-    // Famobi SDK
+    // Famobi SDK - Comprehensive stub
     window.famobi = {
       hasFeature: function() { return false; },
       showAd: function(callback) { if (callback) callback(); },
@@ -57,10 +57,17 @@
       getVolume: function() { return 1; },
       setVolume: function() {},
       setPreloadProgress: function() {},
+      gameReady: function() { console.log('[Famobi] gameReady called'); },
+      playerReady: function() { console.log('[Famobi] playerReady called'); },
       onRequest: function(event, callback) { 
-        // Mock event handler for game requests
         if (callback) callback();
       },
+      triggerEvent: function(event, data) {},
+      submitHighscore: function(score) { console.log('[Famobi] submitHighscore:', score); },
+      setGameStarted: function() {},
+      setGamePaused: function() {},
+      setGameResumed: function() {},
+      setGameEnded: function() {},
       localStorage: {
         getItem: function(key) { return localStorage.getItem(key); },
         setItem: function(key, val) { localStorage.setItem(key, val); },
@@ -72,6 +79,10 @@
       getOrientation: function() { return "landscape"; },
       hasRewardedAd: function() { return false; },
       log: function() {},
+      hasMoreGamesButton: function() { return false; },
+      hasBrandingButton: function() { return false; },
+      getMoreGamesUrl: function() { return ""; },
+      getBrandingUrl: function() { return ""; },
     };
     
     // Famobi Analytics
