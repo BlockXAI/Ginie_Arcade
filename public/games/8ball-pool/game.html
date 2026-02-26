@@ -57,6 +57,10 @@
       getVolume: function() { return 1; },
       setVolume: function() {},
       setPreloadProgress: function() {},
+      onRequest: function(event, callback) { 
+        // Mock event handler for game requests
+        if (callback) callback();
+      },
       localStorage: {
         getItem: function(key) { return localStorage.getItem(key); },
         setItem: function(key, val) { localStorage.setItem(key, val); },
