@@ -42,6 +42,8 @@ const GAME_NAMES: Record<string, string> = {
   'neon-sky-runner': 'Neon Sky Runner',
   'tilenova': 'TileNova',
   'flappy': 'Flappy Bird',
+  'sudoku': 'Sudoku',
+  '8ball-pool': '8 Ball Pool',
 };
 
 const TIER_STYLES: Record<string, { border: string; bg: string; text: string }> = {

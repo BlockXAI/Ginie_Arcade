@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+  <title>8 Ball Pool - Ginix Arcade</title>
+  
+  <!-- Ginix Bridge for score communication -->
+  <script src="/games/ginix-bridge.js"></script>
+  
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #1a1a2e;
+      width: 100%;
+      height: 100%;
+    }
+    #mygame {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    canvas {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <center><div id="mygame"></div></center>
+  
+  <!-- Game Scripts -->
+  <script>
+    window.gameID = "8ball-pool";
+    
+    // Disable external SDKs
+    window.famobi_analytics = {
+      trackScreen: function() {},
+      trackEvent: function() {},
+      trackStats: function() {}
+    };
+    window.famobi = {
+      localStorage: {
+        getItem: function(key) { return localStorage.getItem(key); },
+        setItem: function(key, val) { localStorage.setItem(key, val); },
+        removeItem: function(key) { localStorage.removeItem(key); }
+      },
+      hasFeature: function() { return false; },
+      showAd: function() {},
+      log: function() {}
+    };
+    
+    // Track game state for scoring
+    window._8ballGameState = {
+      ballsPocketed: 0,
+      gameStartTime: Date.now(),
+      sessionStarted: false
+    };
+  </script>
+  
+  <script src="assets/src/01phaser.js"></script>
+  <script src="assets/src/02Ball.js"></script>
+  <script src="assets/src/03contactListener.js"></script>
+  <script src="assets/src/04billiardPhysics.js"></script>
+  <script src="assets/src/05levelData.js"></script>
+  <script src="assets/src/06maths.js"></script>
+  <script src="assets/src/07vector2d.js"></script>
+  <script src="assets/src/08render.js"></script>
+  <script src="assets/src/09sound.js"></script>
+  <script src="assets/src/10effects.js"></script>
+  <script src="assets/src/11timer.js"></script>
+  <script src="assets/src/12load.js"></script>
+  <script src="assets/src/13mainMenu.js"></script>
+  <script src="assets/src/14setup.js"></script>
+  <script src="assets/src/15gameController.js"></script>
+  <script src="assets/src/16boot.js"></script>
+  
+  <!-- Ginix Integration - hooks into game state for score tracking -->
+  <script src="ginix-integration.js"></script>
+</body>
+</html>

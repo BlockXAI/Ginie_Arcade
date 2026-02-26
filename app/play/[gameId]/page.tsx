@@ -29,6 +29,11 @@ const GAME_CONFIG: Record<string, { name: string; url: string; icon: string }> =
     url: '/games/sudoku/index.html',
     icon: '🔥',
   },
+  '8ball-pool': {
+    name: '8 Ball Pool',
+    url: '/games/8ball-pool/game.html',
+    icon: '🎱',
+  },
 };
 
 export default function GamePlayer() {
