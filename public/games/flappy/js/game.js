@@ -116,46 +116,46 @@ let score
  *   Load the game assets.
  */
 function preload() {
-    this.load.image(assets.scene.background.day, 'assets/background-day.png')
-    this.load.image(assets.scene.background.night, 'assets/background-night.png')
-    this.load.spritesheet(assets.scene.ground, 'assets/ground-sprite.png', {
+    this.load.image(assets.scene.background.day, '/games/flappy/assets/background-day.png')
+    this.load.image(assets.scene.background.night, '/games/flappy/assets/background-night.png')
+    this.load.spritesheet(assets.scene.ground, '/games/flappy/assets/ground-sprite.png', {
         frameWidth: 336,
         frameHeight: 112
     })
 
-    this.load.image(assets.obstacle.pipe.green.top, 'assets/pipe-green-top.png')
-    this.load.image(assets.obstacle.pipe.green.bottom, 'assets/pipe-green-bottom.png')
-    this.load.image(assets.obstacle.pipe.red.top, 'assets/pipe-red-top.png')
-    this.load.image(assets.obstacle.pipe.red.bottom, 'assets/pipe-red-bottom.png')
+    this.load.image(assets.obstacle.pipe.green.top, '/games/flappy/assets/pipe-green-top.png')
+    this.load.image(assets.obstacle.pipe.green.bottom, '/games/flappy/assets/pipe-green-bottom.png')
+    this.load.image(assets.obstacle.pipe.red.top, '/games/flappy/assets/pipe-red-top.png')
+    this.load.image(assets.obstacle.pipe.red.bottom, '/games/flappy/assets/pipe-red-bottom.png')
 
-    this.load.image(assets.scene.messageInitial, 'assets/message-initial.png')
+    this.load.image(assets.scene.messageInitial, '/games/flappy/assets/message-initial.png')
 
-    this.load.image(assets.scene.gameOver, 'assets/gameover.png')
-    this.load.image(assets.scene.restart, 'assets/restart-button.png')
+    this.load.image(assets.scene.gameOver, '/games/flappy/assets/gameover.png')
+    this.load.image(assets.scene.restart, '/games/flappy/assets/restart-button.png')
 
-    this.load.spritesheet(assets.bird.red, 'assets/bird-red-sprite.png', {
+    this.load.spritesheet(assets.bird.red, '/games/flappy/assets/bird-red-sprite.png', {
         frameWidth: 34,
         frameHeight: 24
     })
-    this.load.spritesheet(assets.bird.blue, 'assets/bird-blue-sprite.png', {
+    this.load.spritesheet(assets.bird.blue, '/games/flappy/assets/bird-blue-sprite.png', {
         frameWidth: 34,
         frameHeight: 24
     })
-    this.load.spritesheet(assets.bird.yellow, 'assets/bird-yellow-sprite.png', {
+    this.load.spritesheet(assets.bird.yellow, '/games/flappy/assets/bird-yellow-sprite.png', {
         frameWidth: 34,
         frameHeight: 24
     })
 
-    this.load.image(assets.scoreboard.number0, 'assets/number0.png')
-    this.load.image(assets.scoreboard.number1, 'assets/number1.png')
-    this.load.image(assets.scoreboard.number2, 'assets/number2.png')
-    this.load.image(assets.scoreboard.number3, 'assets/number3.png')
-    this.load.image(assets.scoreboard.number4, 'assets/number4.png')
-    this.load.image(assets.scoreboard.number5, 'assets/number5.png')
-    this.load.image(assets.scoreboard.number6, 'assets/number6.png')
-    this.load.image(assets.scoreboard.number7, 'assets/number7.png')
-    this.load.image(assets.scoreboard.number8, 'assets/number8.png')
-    this.load.image(assets.scoreboard.number9, 'assets/number9.png')
+    this.load.image(assets.scoreboard.number0, '/games/flappy/assets/number0.png')
+    this.load.image(assets.scoreboard.number1, '/games/flappy/assets/number1.png')
+    this.load.image(assets.scoreboard.number2, '/games/flappy/assets/number2.png')
+    this.load.image(assets.scoreboard.number3, '/games/flappy/assets/number3.png')
+    this.load.image(assets.scoreboard.number4, '/games/flappy/assets/number4.png')
+    this.load.image(assets.scoreboard.number5, '/games/flappy/assets/number5.png')
+    this.load.image(assets.scoreboard.number6, '/games/flappy/assets/number6.png')
+    this.load.image(assets.scoreboard.number7, '/games/flappy/assets/number7.png')
+    this.load.image(assets.scoreboard.number8, '/games/flappy/assets/number8.png')
+    this.load.image(assets.scoreboard.number9, '/games/flappy/assets/number9.png')
 }
 
 /**
