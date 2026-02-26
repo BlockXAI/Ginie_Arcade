@@ -41,6 +41,11 @@
     window.fenster = {
       isReady: function() { return false; },
       showAd: function(callback) { if (callback) callback(); },
+      subscribeToOffsetUpdates: function() {},
+      unsubscribeFromOffsetUpdates: function() {},
+      getOffset: function() { return { top: 0, left: 0 }; },
+      setLayoutData: function() {},
+      initWithFallback: function() {},
     };
     
     // Famobi SDK
