@@ -60,6 +60,18 @@ export const games: Game[] = [
     category: "Puzzle",
     gamePath: "/games/sudoku/index.html",
   },
+  {
+    id: "8ball-pool",
+    uuid: "a1b2c3d4-5e6f-7g8h-9i0j-1k2l3m4n5o6p",
+    title: "8 Ball Pool",
+    description: "Classic billiards with realistic physics! Pot all your balls and sink the 8-ball to win. Perfect your shot and dominate the table.",
+    icon: "Circle",
+    color: "purple",
+    players: 0,
+    highScore: 0,
+    category: "Arcade",
+    gamePath: "/games/8ball-pool/game.html",
+  },
 ]
 
 export function getGameById(id: string): Game | undefined {

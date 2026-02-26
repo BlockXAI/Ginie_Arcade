@@ -368,6 +368,11 @@ async function checkRewardEligibility(wallet: string, gameId: string, score: num
       { type: 'FLAPPY_ROOKIE', minScore: 10, xp: 50 },
       { type: 'PIPE_MASTER', minScore: 50, xp: 200 },
     ],
+    '8ball-pool': [
+      { type: 'POOL_PLAYER', minScore: 500, xp: 100 },
+      { type: 'POOL_SHARK', minScore: 1000, xp: 250 },
+      { type: 'POOL_LEGEND', minScore: 1300, xp: 500 },
+    ],
   };
 
   const rules = rewardRules[gameId];
@@ -419,7 +424,10 @@ const BADGE_DEFS = [
   { id: 'tilenova-5000', name: 'Circuit Surge Master', description: 'Score 5,000+ in TileNova', tier: 'gold', category: 'tilenova', check: (_s: number, _x: number, h: Record<string, number>) => (h['tilenova'] || 0) >= 5000, value: 5000 },
   { id: 'sudoku-500', name: 'Puzzle Solver', description: 'Score 500+ in Sudoku: Roast Mode', tier: 'bronze', category: 'sudoku', check: (_s: number, _x: number, h: Record<string, number>) => (h['sudoku'] || 0) >= 500, value: 500 },
   { id: 'sudoku-1500', name: 'Roast Survivor', description: 'Score 1,500+ in Sudoku: Roast Mode', tier: 'gold', category: 'sudoku', check: (_s: number, _x: number, h: Record<string, number>) => (h['sudoku'] || 0) >= 1500, value: 1500 },
-  { id: 'all-rounder', name: 'All-Rounder', description: 'Play all 4 games', tier: 'silver', category: 'multi', check: (_s: number, _x: number, h: Record<string, number>) => Object.keys(h).length >= 4, value: 4 },
+  { id: '8ball-500', name: 'Pool Rookie', description: 'Score 500+ in 8 Ball Pool', tier: 'bronze', category: '8ball', check: (_s: number, _x: number, h: Record<string, number>) => (h['8ball-pool'] || 0) >= 500, value: 500 },
+  { id: '8ball-1000', name: 'Pool Shark', description: 'Score 1,000+ in 8 Ball Pool', tier: 'gold', category: '8ball', check: (_s: number, _x: number, h: Record<string, number>) => (h['8ball-pool'] || 0) >= 1000, value: 1000 },
+  { id: '8ball-perfect', name: 'Perfect Break', description: 'Score 1,300+ in 8 Ball Pool', tier: 'platinum', category: '8ball', check: (_s: number, _x: number, h: Record<string, number>) => (h['8ball-pool'] || 0) >= 1300, value: 1300 },
+  { id: 'all-rounder', name: 'All-Rounder', description: 'Play all games', tier: 'silver', category: 'multi', check: (_s: number, _x: number, h: Record<string, number>) => Object.keys(h).length >= 5, value: 5 },
 ];
 
 /**
