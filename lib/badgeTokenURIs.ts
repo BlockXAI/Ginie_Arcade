@@ -33,7 +33,7 @@ export function getBadgeTokenURI(badgeId: string, badgeName: string, badgeDescri
   const metadata = {
     name: badgeName,
     description: badgeDescription,
-    image: `${appUrl}/badges/${badgeId}.svg`,
+    image: `${appUrl}/badges/${badgeId}.png`,
     external_url: `${appUrl}/dashboard`,
     attributes: [
       { trait_type: 'Tier', value: badgeTier.charAt(0).toUpperCase() + badgeTier.slice(1) },

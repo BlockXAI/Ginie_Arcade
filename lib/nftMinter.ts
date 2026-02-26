@@ -152,7 +152,7 @@ export async function mintScoreNFT(
     const metadata = {
       name: `${gameName} Score: ${score}`,
       description: `Achieved score of ${score} in ${gameName} on Ginix Arcade`,
-      image: `https://arcade-web-chi.vercel.app/badges/${gameId === 'neon-sky-runner' ? 'neon-1000' : gameId === 'tilenova' ? 'tilenova-500' : gameId === 'sudoku' ? 'sudoku-500' : 'flappy-10'}.svg`,
+      image: `https://arcade-web-chi.vercel.app/badges/${gameId === 'neon-sky-runner' ? 'neon-1000' : gameId === 'tilenova' ? 'tilenova-500' : gameId === 'sudoku' ? 'sudoku-500' : 'flappy-10'}.png`,
       attributes: [
         { trait_type: 'Game', value: gameName },
         { trait_type: 'Score', value: score },
